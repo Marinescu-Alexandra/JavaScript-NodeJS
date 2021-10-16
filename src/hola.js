@@ -7,4 +7,3 @@ export const handleGreeting = ({params}, res) => {
     }
 } 
 
-

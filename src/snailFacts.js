@@ -1,19 +1,16 @@
 import fetch from 'node-fetch';
-/*
+
 export const handleSnailFacts = async (req, res) => {
-    const response = await fetch('https://cat-fact.herokuapp.com/facts');
-    const body = await response.json();
-    const facts = body.map(({text, createdAt}) =>({
-        text,
-        createdAt,
-    }));
-    res.send(facts);
+
+    const body = {a: 1};
+    const response = await fetch('http://headers.jsontest.com/', {
+        method: 'post',
+        body: JSON.stringify(body),
+        headers: {'Content-Type': 'application/json'}
+    });
+    const data = await response.json();
+    res.send(data);
+    console.log(data);
 };
-*/
 
-export const handleSnailFacts = async (req, res) => {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-        .then(response => response.json())
-        .then(json => console.log(json))
-}
-
+/* https://cat-fact.herokuapp.com/#/snail/facts #sadface */

@@ -14,9 +14,9 @@ app.get('/hello/:nume?', (req, res) => {
     handleGreeting(req, res)
 });
 
-app.get('/snail/facts', (req, res) => {
-    handleSnailFacts(req, res)
-});
+app.get('/snail/facts', handleSnailFacts);
+
+
 app.listen(port, () => {
     console.log('Server started on', port);
 });
