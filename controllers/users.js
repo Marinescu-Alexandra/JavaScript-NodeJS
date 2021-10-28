@@ -14,8 +14,9 @@ module.exports.getAllUsers = async (req, res) => {
 
 // Return User
 module.exports.getUserById = async (req, res) => {
+  var idUser = parseInt(req.params.id);
   try {
-      const userById = await db.User.findByPk(10);
+      const userById = await db.User.findByPk(idUser);
       res.send(userById);
   } catch (error) {
     console.error('Something went wrong');
@@ -50,14 +51,15 @@ module.exports.createUser = async (req, res) => {
 
 // Updated User
 module.exports.updateUser = async (req, res) => {
+  var idUser = parseInt(req.params.id);
   try {
     const update = await db.User.update({ lastName: "Sebastian" }, {
       where: {
-        id:10
+        id:idUser
       }
     });
       try {
-        const updatedUser = await db.User.findByPk(10);
+        const updatedUser = await db.User.findByPk(idUser);
         res.send(updatedUser);
       } catch (error) {
         console.error('User was not updated');
@@ -75,10 +77,11 @@ module.exports.updateUser = async (req, res) => {
 
 // Nothing
 module.exports.deleteUser = async (req, res) => {
+  var idUser = parseInt(req.params.id);
   try {
     const deletedUser = await db.User.destroy({
       where: {
-        id:9
+        id:idUser
       }
     });
     res.sendStatus(204);
