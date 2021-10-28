@@ -1,6 +1,6 @@
-import fetch from 'node-fetch';
+const fetch = require('fetch');
 
-export const handleSnailFacts = async (req, res) => {
+const handleSnailFacts = async (req, res) => {
 
     const body = {a: 1};
     const response = await fetch('http://headers.jsontest.com/', {
@@ -14,3 +14,5 @@ export const handleSnailFacts = async (req, res) => {
 };
 
 /* https://cat-fact.herokuapp.com/#/snail/facts #sadface */
+
+module.exports = handleSnailFacts;

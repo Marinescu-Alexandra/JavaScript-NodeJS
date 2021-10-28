@@ -1,9 +1,10 @@
-export const handleGreeting = ({params}, res) => {
+const handleGreeting = ({params}, res) => {
     if(!params.nume){
-        res.send("Holla mi amigo")
+        res.send("Hola mi amigo")
     }else {
         const message = 'Hola ' + params.nume;
         res.send(message);
     }
 } 
 
+module.exports = handleGreeting;
